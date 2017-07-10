@@ -293,7 +293,7 @@ class ModelViewerViewController: UIViewController {
         }
     }
     
-    
+    //MARK: - Menu Tapped
     func menuRemoveTapped(){
         
         if fileType == .DAE{

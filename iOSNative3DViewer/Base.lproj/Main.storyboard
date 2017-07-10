@@ -1,26 +1,55 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tvM-7C-pgS">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Game View Controller-->
-        <scene sceneID="tXr-a1-R10">
+        <!--Model Viewer View Controller-->
+        <scene sceneID="ZZy-As-rq4">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tvM-7C-pgS" customClass="ModelViewerViewController" customModule="iOSNative3DViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Cei-gA-s71"/>
-                        <viewControllerLayoutGuide type="bottom" id="O1X-57-Ctf"/>
+                        <viewControllerLayoutGuide type="top" id="RIL-tr-CbR"/>
+                        <viewControllerLayoutGuide type="bottom" id="vt7-Dx-Zdq"/>
                     </layoutGuides>
-                    <sceneKitView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx">
+                    <view key="view" contentMode="scaleToFill" id="lvP-B3-erN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </sceneKitView>
+                        <subviews>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pdz-cq-eGg">
+                                <rect key="frame" x="0.0" y="50" width="375" height="617"/>
+                            </sceneKitView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="JFp-bG-anH">
+                                <rect key="frame" x="-2" y="20" width="379" height="31"/>
+                                <connections>
+                                    <action selector="transparencyChanged:" destination="tvM-7C-pgS" eventType="valueChanged" id="Ihj-gw-vQR"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pdz-cq-eGg" firstAttribute="leading" secondItem="lvP-B3-erN" secondAttribute="leading" id="F4X-Y0-ZSh"/>
+                            <constraint firstItem="pdz-cq-eGg" firstAttribute="top" secondItem="JFp-bG-anH" secondAttribute="bottom" id="aNc-nd-31W"/>
+                            <constraint firstItem="vt7-Dx-Zdq" firstAttribute="top" secondItem="pdz-cq-eGg" secondAttribute="bottom" id="amN-MS-EHM"/>
+                            <constraint firstAttribute="trailing" secondItem="pdz-cq-eGg" secondAttribute="trailing" id="kf1-yq-NSQ"/>
+                            <constraint firstItem="JFp-bG-anH" firstAttribute="top" secondItem="RIL-tr-CbR" secondAttribute="bottom" id="qsA-Wl-toi"/>
+                            <constraint firstAttribute="trailing" secondItem="JFp-bG-anH" secondAttribute="trailing" id="sOz-kB-h7F"/>
+                            <constraint firstItem="JFp-bG-anH" firstAttribute="leading" secondItem="lvP-B3-erN" secondAttribute="leading" id="v4D-Rr-tDi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scnView" destination="pdz-cq-eGg" id="0qb-w9-TA8"/>
+                        <outlet property="transparencySlider" destination="JFp-bG-anH" id="Ptu-gX-ubx"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H4I-MP-PZ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="49" y="140"/>
         </scene>
     </scenes>
 </document>
